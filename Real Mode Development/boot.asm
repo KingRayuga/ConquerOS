@@ -7,9 +7,15 @@ _start:
 times 33 db 0
 
 start:
-    jmp 0x7C0:step1
-    
-.step:
+    jmp 0x7C0:step
+
+handle_one:
+    mov ah,0eh
+    mov al,'#'
+    int 0x10
+    iret
+
+step:
     cli
     mov ax, 07C0
     mov ds, ax
@@ -17,6 +23,11 @@ start:
     mov ss, ax
     mov sp, 0x7C00
     sli
+
+    mov word[ss:0x04], handle_one
+    mov word[ss:0x06], 0x7C0
+
+    int 1
 
     mov si, message
     call print
@@ -34,7 +45,7 @@ print:
     ret
 
 print_char:
-    move ah,0eh
+    mov ah,0eh
     int 0x10
     ret
 
