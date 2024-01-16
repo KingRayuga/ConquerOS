@@ -7,7 +7,6 @@ DATA_SEG equ gdt_data - gdt_start
 _start:
     jmp short start
     nop
-
 times 33 db 0
 
 start:
@@ -67,6 +66,12 @@ load32:
     mov ss, ax
     mov ebp, 0x00200000
     mov esp, ebp
+
+    ; Enable the A20 line
+    in al, 0x92
+    or al, 2
+    out 0x92, al
+
     jmp $
 
 times 510-($ - $$) db 0
