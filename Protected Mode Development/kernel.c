@@ -2,6 +2,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include "idt/idt.h"
+#include "io/io.h"
 
 enum VGAColor {
     VGA_COLOR_BLACK = 0,
@@ -95,4 +96,5 @@ void kernel_main()
     terminal_initialize();
     print("Welcome to Conquer OS\n");
     initIDT();
+    outb(0x60, 0xff);
 }
