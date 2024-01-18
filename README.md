@@ -1,12 +1,48 @@
-# ConquerOS
+# Conquer OS
 
-ConquerOS is a multi-threaded kernel built using C, C++, and x86 Assembly. It aims to provide a robust and efficient operating system foundation with support for multi-threading.
+## Overview
 
-## Features
+This project aims to develop a multithreaded kernel operating system from scratch, providing a modern day micro-kernel OS.
 
-- **Multi-Threading:** ConquerOS leverages the power of multi-threading to enhance performance and concurrency.
+## Current Features
 
-- **C/C++/x86 Assembly:** The kernel is written in a combination of C, C++, and x86 Assembly to achieve a balance between high-level abstraction and low-level control.
+- Real Mode:
+  - [x] Custom bootloader with interrupt vector
+- Protected Mode:
+  - [x] Bootloader
+  - [x] Kernel
+  - [x] Linker
+  - [x] Interrupt descriptor table (IDT)
+  - [x] Interrupt Controller
+  - [x] i/o function
+  - [x] Heap allocator
+  - [x] FAT file system support
+  - [ ] paging
+  - [ ] disk driver
+  - [ ] path parser
+  - [ ] disk stream
+  - [ ] VFS
 
-- **Efficiency:** The kernel is designed with a focus on efficiency, optimizing resource utilization for improved system performance.
+## Technologies Used
 
+- C
+- C++
+- x86 Assembly
+
+## Emulator Requirements
+
+- QEMU
+
+## Building and Running
+
+Prerequisites:
+
+Ensure you have a C/C++ compiler and QEMU installed.
+
+## Contribute
+
+Feel free to contribute to this project! Here's how:
+
+1. Fork this repository.
+2. Make your changes.
+3. Submit a pull request.
